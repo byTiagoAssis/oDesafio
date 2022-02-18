@@ -1,0 +1,52 @@
+package desafios;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class DesafioNumeroDois {
+	
+   
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in); // Leitor de teclado no console
+		boolean senhaInvalida = true;
+		
+		do {
+		
+			
+		
+			boolean digitouNumero = false; 
+			boolean	digitouLetra = false; 
+			boolean	digitouEspecial = false;
+			
+			System.out.println("Digite uma senha:");
+			String usuarioSenha = scanner.nextLine();
+			
+			if(usuarioSenha.length() >= 6) {
+				char[] charSenha = usuarioSenha.toCharArray();
+				for (char chTest: charSenha) {
+					if(Character.isDigit(chTest)) { // Verifica se o caractere é um número 
+						digitouNumero = true;
+						
+					} else if(Character.isLetter(chTest)) { // Verifica se o caractere é uma letra
+						digitouLetra = true;
+						
+					} else { // Se o caractere não é uma letra e nem um número é identificado como caractere especial
+						digitouEspecial = true;
+						
+					}
+				}
+				
+				
+			}
+			if(digitouNumero && digitouLetra && digitouEspecial ) {
+				System.out.println("ok");
+				break;
+			} else {System.out.println("nao");}
+			
+		}while(senhaInvalida);
+
+	}
+}
+
+
